@@ -2,7 +2,7 @@
   "name": "mycollection",
   "version": "1.0.0",
   "description": "MyCollection — gestionnaire de collections (Electron + Angular + Prisma)",
-  "author": "Nicolas Wattiaux",
+  "author": "BALHOR Otman",
   "license": "MIT",
   "main": "dist-electron/main.js",
   "scripts": {

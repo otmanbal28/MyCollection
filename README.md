@@ -11,7 +11,7 @@ en renderer, **Prisma** comme ORM sur une base **SQLite locale**.
 Prérequis : **Node.js ≥ 18** et **npm**.
 
 ```bash
-# 1. Installer les dépendances (génère aussi le client Prisma via postinstall)
+# 1. Installer les dépendances
 npm install
 
 # 2. Créer la base SQLite et appliquer le schéma
@@ -163,4 +163,4 @@ unique (find-or-create de la collection + création de l'item + historique).
 
 ---
 
-Auteur : **Nicolas Wattiaux** — 2026
+Auteur : **BALHOR OTMAN** — MAI 2026
