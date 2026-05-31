@@ -1,0 +1,56 @@
+<section class="page">
+  <header class="page-head">
+    <div>
+      <h1 class="page-title">Mes collections</h1>
+      <p class="page-sub">Gérez votre inventaire de collections.</p>
+    </div>
+    <div class="head-actions">
+      <button class="btn-secondary" (click)="supprimerUses()">Purger les collections usées</button>
+      <button class="btn-primary" (click)="ouvrirCreation()">Ajouter nouvel item</button>
+    </div>
+  </header>
+
+  <div class="search-bar">
+    <input
+      type="text"
+      placeholder="Rechercher un item…"
+      [ngModel]="recherche()"
+      (ngModelChange)="majRecherche($event)"
+    />
+  </div>
+
+  @if (erreur()) {
+    <div class="alert">{{ erreur() }}</div>
+  }
+
+  @if (chargement()) {
+    <p class="info">Chargement…</p>
+  } @else if (aucunResultat()) {
+    <div class="empty">
+      <p>Aucun item pour l’instant.</p>
+      <button class="btn-primary" (click)="ouvrirCreation()">Créer le premier</button>
+    </div>
+  } @else {
+    <div class="grid">
+      @for (item of itemsFiltres(); track item.id) {
+        <app-item-card
+          [item]="item"
+          (modifier)="ouvrirEdition($event)"
+          (supprimer)="onSupprimer($event)"
+        />
+      }
+    </div>
+  }
+</section>
+
+<!-- Panneau latéral avec le formulaire -->
+@if (formVisible()) {
+  <div class="overlay" (click)="fermerForm()"></div>
+  <aside class="drawer">
+    <app-item-form
+      [itemAEditer]="itemEnEdition()"
+      (enregistre)="fermerForm()"
+      (annule)="fermerForm()"
+    />
+  </aside>
+}

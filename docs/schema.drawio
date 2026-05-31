@@ -1,0 +1,123 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="Schema BD - Collections" id="schema-collections">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ============ Categorie ============ -->
+        <mxCell id="cat" value="Categorie" style="shape=table;startSize=26;container=1;collapsible=0;childLayout=tableLayout;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="200" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="cat_r1" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="cat"><mxGeometry y="26" width="200" height="26" as="geometry" /></mxCell>
+        <mxCell id="cat_id" value="🔑 id : Int (PK)" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;fontSize=12;align=left;spacingLeft=4;" vertex="1" parent="cat_r1"><mxGeometry width="200" height="26" as="geometry" /></mxCell>
+        <mxCell id="cat_r2" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;top=0;left=0;bottom=0;right=0;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="cat"><mxGeometry y="52" width="200" height="26" as="geometry" /></mxCell>
+        <mxCell id="cat_nom" value="nom : String (unique)" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="cat_r2"><mxGeometry width="200" height="26" as="geometry" /></mxCell>
+        <mxCell id="cat_r3" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="cat"><mxGeometry y="78" width="200" height="26" as="geometry" /></mxCell>
+        <mxCell id="cat_desc" value="description : String?" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="cat_r3"><mxGeometry width="200" height="26" as="geometry" /></mxCell>
+
+        <!-- ============ Collection ============ -->
+        <mxCell id="col" value="Collection" style="shape=table;startSize=26;container=1;collapsible=0;childLayout=tableLayout;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="360" y="40" width="220" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="col_r1" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="col"><mxGeometry y="26" width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="col_id" value="🔑 id : Int (PK)" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="col_r1"><mxGeometry width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="col_r2" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="col"><mxGeometry y="52" width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="col_nom" value="nom : String" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="col_r2"><mxGeometry width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="col_r3" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="col"><mxGeometry y="78" width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="col_desc" value="description : String?" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="col_r3"><mxGeometry width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="col_r4" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="col"><mxGeometry y="104" width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="col_fk" value="🔗 categorieId : Int (FK)" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="col_r4"><mxGeometry width="220" height="26" as="geometry" /></mxCell>
+
+        <!-- ============ Item ============ -->
+        <mxCell id="item" value="Item" style="shape=table;startSize=26;container=1;collapsible=0;childLayout=tableLayout;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="360" y="240" width="240" height="208" as="geometry" />
+        </mxCell>
+        <mxCell id="item_r1" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="item"><mxGeometry y="26" width="240" height="26" as="geometry" /></mxCell>
+        <mxCell id="item_id" value="🔑 id : Int (PK)" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="item_r1"><mxGeometry width="240" height="26" as="geometry" /></mxCell>
+        <mxCell id="item_r2" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="item"><mxGeometry y="52" width="240" height="26" as="geometry" /></mxCell>
+        <mxCell id="item_nom" value="nom : String" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="item_r2"><mxGeometry width="240" height="26" as="geometry" /></mxCell>
+        <mxCell id="item_r3" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="item"><mxGeometry y="78" width="240" height="26" as="geometry" /></mxCell>
+        <mxCell id="item_nb" value="nombre : Int" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="item_r3"><mxGeometry width="240" height="26" as="geometry" /></mxCell>
+        <mxCell id="item_r4" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="item"><mxGeometry y="104" width="240" height="26" as="geometry" /></mxCell>
+        <mxCell id="item_us" value="usure : EtatUsure (enum)" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="item_r4"><mxGeometry width="240" height="26" as="geometry" /></mxCell>
+        <mxCell id="item_r5" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="item"><mxGeometry y="130" width="240" height="26" as="geometry" /></mxCell>
+        <mxCell id="item_desc" value="description : String?" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="item_r5"><mxGeometry width="240" height="26" as="geometry" /></mxCell>
+        <mxCell id="item_r6" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="item"><mxGeometry y="156" width="240" height="26" as="geometry" /></mxCell>
+        <mxCell id="item_fk1" value="🔗 collectionId : Int (FK)" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="item_r6"><mxGeometry width="240" height="26" as="geometry" /></mxCell>
+        <mxCell id="item_r7" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="item"><mxGeometry y="182" width="240" height="26" as="geometry" /></mxCell>
+        <mxCell id="item_fk2" value="🔗 localisationId : Int? (FK)" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="item_r7"><mxGeometry width="240" height="26" as="geometry" /></mxCell>
+
+        <!-- ============ Localisation ============ -->
+        <mxCell id="loc" value="Localisation" style="shape=table;startSize=26;container=1;collapsible=0;childLayout=tableLayout;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="200" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="loc_r1" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="loc"><mxGeometry y="26" width="200" height="26" as="geometry" /></mxCell>
+        <mxCell id="loc_id" value="🔑 id : Int (PK)" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="loc_r1"><mxGeometry width="200" height="26" as="geometry" /></mxCell>
+        <mxCell id="loc_r2" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="loc"><mxGeometry y="52" width="200" height="26" as="geometry" /></mxCell>
+        <mxCell id="loc_nom" value="nom : String" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="loc_r2"><mxGeometry width="200" height="26" as="geometry" /></mxCell>
+        <mxCell id="loc_r3" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="loc"><mxGeometry y="78" width="200" height="26" as="geometry" /></mxCell>
+        <mxCell id="loc_piece" value="piece : String?" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="loc_r3"><mxGeometry width="200" height="26" as="geometry" /></mxCell>
+
+        <!-- ============ Tag ============ -->
+        <mxCell id="tag" value="Tag" style="shape=table;startSize=26;container=1;collapsible=0;childLayout=tableLayout;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="800" y="280" width="180" height="78" as="geometry" />
+        </mxCell>
+        <mxCell id="tag_r1" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="tag"><mxGeometry y="26" width="180" height="26" as="geometry" /></mxCell>
+        <mxCell id="tag_id" value="🔑 id : Int (PK)" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="tag_r1"><mxGeometry width="180" height="26" as="geometry" /></mxCell>
+        <mxCell id="tag_r2" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="tag"><mxGeometry y="52" width="180" height="26" as="geometry" /></mxCell>
+        <mxCell id="tag_nom" value="nom : String (unique)" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="tag_r2"><mxGeometry width="180" height="26" as="geometry" /></mxCell>
+
+        <!-- ============ ItemTag (jonction N:M) ============ -->
+        <mxCell id="it" value="ItemTag (jonction N:M)" style="shape=table;startSize=26;container=1;collapsible=0;childLayout=tableLayout;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="780" y="420" width="220" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="it_r1" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="it"><mxGeometry y="26" width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="it_fk1" value="🔑🔗 itemId : Int (PK,FK)" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="it_r1"><mxGeometry width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="it_r2" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="it"><mxGeometry y="52" width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="it_fk2" value="🔑🔗 tagId : Int (PK,FK)" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="it_r2"><mxGeometry width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="it_r3" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="it"><mxGeometry y="78" width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="it_d" value="ajouteLe : DateTime" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="it_r3"><mxGeometry width="220" height="26" as="geometry" /></mxCell>
+
+        <!-- ============ Emprunt ============ -->
+        <mxCell id="emp" value="Emprunt" style="shape=table;startSize=26;container=1;collapsible=0;childLayout=tableLayout;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="360" y="520" width="220" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="emp_r1" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="emp"><mxGeometry y="26" width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="emp_id" value="🔑 id : Int (PK)" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="emp_r1"><mxGeometry width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="emp_r2" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="emp"><mxGeometry y="52" width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="emp_nom" value="emprunteur : String" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="emp_r2"><mxGeometry width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="emp_r3" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="emp"><mxGeometry y="78" width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="emp_rendu" value="rendu : Boolean" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="emp_r3"><mxGeometry width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="emp_r4" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="emp"><mxGeometry y="104" width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="emp_fk" value="🔗 itemId : Int (FK)" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="emp_r4"><mxGeometry width="220" height="26" as="geometry" /></mxCell>
+
+        <!-- ============ HistoriqueAction ============ -->
+        <mxCell id="his" value="HistoriqueAction" style="shape=table;startSize=26;container=1;collapsible=0;childLayout=tableLayout;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="40" y="520" width="220" height="104" as="geometry" />
+        </mxCell>
+        <mxCell id="his_r1" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="his"><mxGeometry y="26" width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="his_id" value="🔑 id : Int (PK)" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="his_r1"><mxGeometry width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="his_r2" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="his"><mxGeometry y="52" width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="his_a" value="action : String" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="his_r2"><mxGeometry width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="his_r3" value="" style="shape=tableRow;horizontal=0;startSize=0;strokeColor=inherit;collapsible=0;dropTarget=0;fillColor=none;fontSize=12;" vertex="1" parent="his"><mxGeometry y="78" width="220" height="26" as="geometry" /></mxCell>
+        <mxCell id="his_d" value="details : String?" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;strokeColor=inherit;overflow=hidden;fillColor=none;align=left;spacingLeft=4;fontSize=12;" vertex="1" parent="his_r3"><mxGeometry width="220" height="26" as="geometry" /></mxCell>
+
+        <!-- ============ RELATIONS ============ -->
+        <!-- Categorie 1:N Collection (Restrict) -->
+        <mxCell id="rel1" value="1:N (Restrict)" style="edgeStyle=entityRelationEdgeStyle;fontSize=11;html=1;endArrow=ERmany;startArrow=ERone;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="cat" target="col"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Collection 1:N Item (Cascade) -->
+        <mxCell id="rel2" value="1:N (Cascade)" style="edgeStyle=entityRelationEdgeStyle;fontSize=11;html=1;endArrow=ERmany;startArrow=ERone;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="col" target="item"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Localisation 1:N Item (SetNull) -->
+        <mxCell id="rel3" value="1:N (SetNull)" style="edgeStyle=entityRelationEdgeStyle;fontSize=11;html=1;endArrow=ERmany;startArrow=ERone;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="loc" target="item"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Item 1:N Emprunt (Cascade) -->
+        <mxCell id="rel4" value="1:N (Cascade)" style="edgeStyle=entityRelationEdgeStyle;fontSize=11;html=1;endArrow=ERmany;startArrow=ERone;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="item" target="emp"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Item 1:N ItemTag -->
+        <mxCell id="rel5" value="1:N" style="edgeStyle=entityRelationEdgeStyle;fontSize=11;html=1;endArrow=ERmany;startArrow=ERone;rounded=0;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="item" target="it"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <!-- Tag 1:N ItemTag -->
+        <mxCell id="rel6" value="1:N" style="edgeStyle=entityRelationEdgeStyle;fontSize=11;html=1;endArrow=ERmany;startArrow=ERone;rounded=0;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="tag" target="it"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

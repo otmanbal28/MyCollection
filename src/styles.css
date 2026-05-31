@@ -1,0 +1,40 @@
+/* =============================================================
+   Styles globaux — palette terreuse "atelier/inventaire".
+   Polices système (aucune dépendance externe).
+   ============================================================= */
+
+:root {
+  --bg: #f5f1ea;
+  --surface: #ffffff;
+  --ink: #1f1b16;
+  --muted: #8a8178;
+  --line: #e4ddd1;
+  --accent: #b4530f;       /* terracotta */
+  --accent-soft: #f7e4d6;
+  --danger: #c0392b;
+
+  --font-display: Georgia, 'Times New Roman', serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+a {
+  color: inherit;
+}

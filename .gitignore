@@ -1,0 +1,35 @@
+# Dépendances
+node_modules/
+
+# Build Angular
+dist/
+.angular/
+out-tsc/
+
+# Build Electron
+dist-electron/
+
+# Base de données SQLite locale
+prisma/dev.db
+prisma/dev.db-journal
+*.db
+*.db-journal
+
+# Prisma — client généré
+node_modules/.prisma/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Système
+.DS_Store
+Thumbs.db
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+
+# Environnement
+.env

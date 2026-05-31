@@ -1,0 +1,25 @@
+<article class="card">
+  <header class="card-head">
+    <h3 class="card-title">{{ item().nom }}</h3>
+    <span class="badge" [class.badge-use]="item().usure === 'USE'">
+      {{ item().usure === 'USE' ? 'Usé' : 'Neuf' }}
+    </span>
+  </header>
+
+  <div class="card-meta">
+    <span class="qty">×{{ item().nombre }}</span>
+    @if (item().collection) {
+      <span class="dot">·</span>
+      <span>{{ item().collection!.nom }}</span>
+    }
+  </div>
+
+  @if (item().description) {
+    <p class="card-desc">{{ item().description }}</p>
+  }
+
+  <footer class="card-actions">
+    <button class="link" (click)="modifier.emit(item())">Modifier</button>
+    <button class="link danger" (click)="supprimer.emit(item().id)">Supprimer</button>
+  </footer>
+</article>

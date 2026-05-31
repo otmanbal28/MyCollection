@@ -1,0 +1,68 @@
+<form [formGroup]="form" (ngSubmit)="soumettre()" class="item-form">
+  <h2 class="form-title">
+    {{ itemAEditer() ? 'Modifier l’item' : 'Nouvel item' }}
+  </h2>
+
+  <!-- Nom de la collection -->
+  <label class="field">
+    <span class="field-label">Nom de la collection</span>
+    <input type="text" formControlName="collectionNom" placeholder="ex : Jeux de plateau" />
+    @if (form.controls.collectionNom.touched && form.controls.collectionNom.invalid) {
+      <small class="err">Le nom de la collection est obligatoire.</small>
+    }
+  </label>
+
+
+  <label class="field">
+    <span class="field-label">Nom de l’item</span>
+    <input type="text" formControlName="nom" placeholder="ex : Catan" />
+    @if (form.controls.nom.touched && form.controls.nom.invalid) {
+      <small class="err">Le nom de l’item est obligatoire.</small>
+    }
+  </label>
+
+  <!-- Nombre -->
+  <label class="field">
+    <span class="field-label">Nombre</span>
+    <input type="number" formControlName="nombre" min="1" />
+    @if (form.controls.nombre.touched && form.controls.nombre.invalid) {
+      <small class="err">Indiquez un nombre valide (≥ 1).</small>
+    }
+  </label>
+
+  <!-- Usure : deux boutons oui / non -->
+  <div class="field">
+    <span class="field-label">Collection usée ?</span>
+    <div class="toggle-group" role="group" aria-label="Usure">
+      <button
+        type="button"
+        class="toggle"
+        [class.active]="form.value.usee === true"
+        (click)="setUsure(true)"
+      >
+        Oui
+      </button>
+      <button
+        type="button"
+        class="toggle"
+        [class.active]="form.value.usee === false"
+        (click)="setUsure(false)"
+      >
+        Non
+      </button>
+    </div>
+  </div>
+
+  <!-- Description (facultative) -->
+  <label class="field">
+    <span class="field-label">Description (facultatif)</span>
+    <textarea formControlName="description" rows="3" placeholder="Notes, état, détails…"></textarea>
+  </label>
+
+  <div class="form-actions">
+    <button type="button" class="btn-ghost" (click)="onAnnuler()">Annuler</button>
+    <button type="submit" class="btn-primary" [disabled]="enCours()">
+      {{ enCours() ? 'Enregistrement…' : 'Enregistrer' }}
+    </button>
+  </div>
+</form>

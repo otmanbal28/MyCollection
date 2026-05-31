@@ -1,0 +1,122 @@
+// =============================================================
+//  Schéma Prisma — Gestionnaire de Collections
+//  Auteur : Nicolas Wattiaux - 2026
+//
+//  Couvre les notions exigées (annexe 5.2) :
+//   - 8 modèles distincts  (min. 7 requis)
+//   - clé primaire autoincrement sur chaque table
+//   - relations 1:N  (Categorie→Collection, Collection→Item, ...)
+//   - table de jonction N:M explicite  (ItemTag)
+//   - onDelete : Cascade / Restrict / SetNull
+//   - include (JOIN) et agrégats (count / groupBy)
+//   - champs optionnels (String?)  + enum (bonus)
+// =============================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+// --- Remarque sur l'usure -----------------------------------
+// SQLite ne supporte pas les `enum` Prisma natifs. On modélise
+// donc l'état d'usure par un champ String contraint applicativement
+// aux valeurs "NEUF" ou "USE" (validation côté Angular + TypeScript).
+// Avec PostgreSQL ou MySQL, on utiliserait : enum EtatUsure { NEUF USE }.
+
+// --- Catégorie : regroupe des collections (1:N) --------------
+model Categorie {
+  id          Int          @id @default(autoincrement())
+  nom         String       @unique
+  description String?
+  collections Collection[]
+}
+
+// --- Collection : appartient à 1 catégorie, contient N items -
+model Collection {
+  id          Int        @id @default(autoincrement())
+  nom         String
+  description String?
+  creeLe      DateTime   @default(now())
+
+  // Relation 1:N — une catégorie possède plusieurs collections.
+  // onDelete: Restrict → on interdit de supprimer une catégorie
+  // tant qu'elle contient des collections.
+  categorie   Categorie  @relation(fields: [categorieId], references: [id], onDelete: Restrict)
+  categorieId Int
+
+  items       Item[]
+}
+
+// --- Item : l'entité centrale demandée -----------------------
+model Item {
+  id           Int        @id @default(autoincrement())
+  nom          String              // nom de la collection / de l'item
+  nombre       Int        @default(1)
+  usure        String     @default("NEUF") // boutons oui / non : "NEUF" ou "USE"
+  description  String?             // facultatif
+
+  // Relation 1:N — une collection contient plusieurs items.
+  // onDelete: Cascade → supprimer la collection supprime ses items.
+  collection   Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+  collectionId Int
+
+  // Relation 1:N optionnelle — un item peut être rangé quelque part.
+  // onDelete: SetNull → si on supprime la localisation, l'item
+  // reste mais sans localisation.
+  localisation   Localisation? @relation(fields: [localisationId], references: [id], onDelete: SetNull)
+  localisationId Int?
+
+  tags     ItemTag[]   // N:M via table de jonction
+  emprunts Emprunt[]   // 1:N — historique des prêts
+}
+
+// --- Tag : étiquette libre, partagée entre items (N:M) -------
+model Tag {
+  id     Int       @id @default(autoincrement())
+  nom    String    @unique
+  items  ItemTag[]
+}
+
+// --- Table de jonction N:M explicite  Item <-> Tag -----------
+model ItemTag {
+  item    Item   @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  itemId  Int
+  tag     Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  tagId   Int
+
+  ajouteLe DateTime @default(now())
+
+  // Clé primaire composite — empêche les doublons (item, tag).
+  @@id([itemId, tagId])
+}
+
+// --- Localisation : où sont rangés les items (1:N) -----------
+model Localisation {
+  id     Int     @id @default(autoincrement())
+  nom    String
+  piece  String?
+  items  Item[]
+}
+
+// --- Emprunt : un item peut être prêté plusieurs fois (1:N) --
+model Emprunt {
+  id          Int       @id @default(autoincrement())
+  emprunteur  String
+  empruntLe   DateTime  @default(now())
+  rendu       Boolean   @default(false)
+
+  item        Item      @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  itemId      Int
+}
+
+// --- Historique : trace des actions (pour les transactions) --
+model HistoriqueAction {
+  id        Int      @id @default(autoincrement())
+  action    String           // ex : "CREATION_ITEM", "SUPPRESSION_ITEM"
+  details   String?
+  creeLe    DateTime @default(now())
+}

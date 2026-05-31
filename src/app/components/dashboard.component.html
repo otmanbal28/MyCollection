@@ -1,0 +1,47 @@
+<section class="page">
+  <header class="page-head">
+    <h1 class="page-title">Tableau de bord</h1>
+    <a routerLink="/items" class="btn-primary">Gérer les items →</a>
+  </header>
+
+  @if (stats(); as s) {
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-value">{{ s.totalItems }}</span>
+        <span class="stat-label">Items</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value">{{ s.totalCollections }}</span>
+        <span class="stat-label">Collections</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value">{{ s.sommeNombre }}</span>
+        <span class="stat-label">Quantité totale</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value">{{ usesCount() }}</span>
+        <span class="stat-label">Items usés</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value">{{ neufsCount() }}</span>
+        <span class="stat-label">Items neufs</span>
+      </div>
+    </div>
+  } @else {
+    <p class="info">Chargement des statistiques…</p>
+  }
+
+  <h2 class="section-title">Historique récent</h2>
+  @if (historique().length === 0) {
+    <p class="info">Aucune action enregistrée.</p>
+  } @else {
+    <ul class="histo">
+      @for (h of historique(); track h.id) {
+        <li class="histo-row">
+          <span class="histo-action">{{ h.action }}</span>
+          <span class="histo-detail">{{ h.details }}</span>
+        </li>
+      }
+    </ul>
+  }
+</section>
